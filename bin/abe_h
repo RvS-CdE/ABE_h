@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import optparse
+import fileinput
+import sys
+
+
+########################################################################### MAIN
+################################################################################
+def main():
+    p = optparse.OptionParser()
+    p.add_option('--format', '-f', action='store', dest='format', default=None, help='Input format (mandatory)'
+    p.add_option('--input', '-i', action='store', dest='input', default=None, help='Raw input (ignores other input if supplied)'
+
+    options, arguments = p.parse_args()
+
+    if options.format is None:
+        parser.error('Format not given')
+
+    if options.input is not None:
+        sys.stdout.write( abe-h.tangle( options.input, options.format) + '\n')
+    else:
+       for input_line in fileinput.input():
+        sys.stdout.write( abe-h.tangle( input_line, options.format) + '\n')
+
+if __name__ == '__main__':
+  main()
