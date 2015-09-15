@@ -1,0 +1,23 @@
+create table MOCK_DATA (
+	id VARCHAR(40),
+	poster_id VARCHAR(40),
+	book_author VARCHAR(50),
+	book_name TEXT,
+	isbn VARCHAR(50),
+	pages INT,
+	likes INT,
+	poster_friends INT,
+	poster_name VARCHAR(50),
+	poster_email VARCHAR(50),
+	poster_job VARCHAR(50)
+);
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('3daee020-6d53-4ccf-bd83-2283c95372a8', '4eb3679c-9e48-4b62-bfa1-4f63f1878afe', 'Douglas Ramos', 'eros elementum pellentesque quisque', '420147104-7', 206, 469, 397, 'Angela Morales', 'amorales0@hexun.com', 'Database Administrator III');
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('bd251cd0-1f20-49a0-8862-1cedb61e71e6', 'dc955222-a487-4722-914d-bac2fd00e5a4', 'John Lopez', 'lorem ipsum dolor', '380575600-3', 656, 112, 340, 'Lisa Robinson', 'lrobinson1@nytimes.com', 'Assistant Manager');
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('9c352337-a63b-45c9-9030-23b6bd0983d2', '942fea4e-e541-4441-8f22-d1608ed97945', 'Joshua Hansen', 'non mauris morbi', '908584225-5', 743, 435, 237, 'James Jenkins', 'jjenkins2@sina.com.cn', 'Account Executive');
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('6bccb9e5-06bc-460b-a9d1-7210b9fe289f', 'f24e2c52-1c45-447e-b48f-bbcbea995e85', 'Martin West', 'nulla nisl', '415806760-X', 596, 781, 152, 'Helen Bradley', 'hbradley3@java.com', 'Cost Accountant');
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('ad281430-06c1-432f-880b-c53d133cfad7', '3b49a745-493d-4c02-a0ce-791f1ebf4942', 'Craig Frazier', 'pede posuere nonummy', '228752580-7', 908, 483, 310, 'Norma Owens', 'nowens4@elpais.com', 'Web Designer I');
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('541264c7-1985-43c2-919c-5a19c0ae5b54', '07a8193b-8cfe-4cc4-89a1-58d1fad0617a', 'Juan Riley', 'erat quisque erat eros', '703129022-8', 747, 670, 343, 'Willie Fernandez', 'wfernandez5@google.co.jp', 'Actuary');
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('96f594a6-829d-4c97-bced-c7339c08ab4e', '74998c27-d4c4-4abc-94a6-db8d973a99c6', 'Joyce Reid', 'proin at turpis', '443196090-2', 902, 432, 417, 'Christopher Evans', 'cevans6@nifty.com', 'Quality Control Specialist');
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('9260ddb5-08ae-48e3-b683-94e668c655f8', '44425caf-1603-4fa6-a2e9-c94723c7456b', 'Richard Phillips', 'nec sem', '144752909-X', 315, 910, 87, 'Roy Johnston', 'rjohnston7@gnu.org', 'Civil Engineer');
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('49567e2c-6ade-4d48-878b-f540a16baa26', 'c102dede-240e-4c15-9541-09cf1b94266c', 'Shirley Alvarez', 'mattis egestas metus aenean', '613426971-9', 748, 813, 562, 'Terry Peterson', 'tpeterson8@godaddy.com', 'Account Coordinator');
+insert into MOCK_DATA (id, poster_id, book_author, book_name, isbn, pages, likes, poster_friends, poster_name, poster_email, poster_job) values ('b9f03fa9-7965-4e63-91e2-d0f1b9c37b2d', '6bf2ce8e-21a2-4036-8dca-0e0aadddc287', 'Jimmy Harris', 'id pretium iaculis', '107814371-4', 415, 464, 140, 'Barbara Hudson', 'bhudson9@com.com', 'Electrical Engineer');

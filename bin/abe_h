@@ -3,6 +3,7 @@
 import optparse
 import fileinput
 import sys
+from cStringIO import StringIO
 
 
 ########################################################################### MAIN
@@ -20,8 +21,12 @@ def main():
     if options.input is not None:
         sys.stdout.write( abe-h.tangle( options.input, options.format) + '\n')
     else:
+       ## Incorrect, just read whole file in var and use that.
+       input_buffer = StringIO()
        for input_line in fileinput.input():
-        sys.stdout.write( abe-h.tangle( input_line, options.format) + '\n')
+        input_buffer.write(input_line)
+
+       sys.stdout.write( abe-h.tangle( input_buffer.get_value(), options.format) + '\n')
 
 if __name__ == '__main__':
   main()
