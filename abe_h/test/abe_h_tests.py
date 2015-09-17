@@ -15,6 +15,8 @@ JsonTestStr1 = '''{
                   "p_j": "VP Product Management"
                 }'''
 
+JsonTestFormat = 'sharedbooks_json'
+
 def setup():
     print "SETUP!"
 
@@ -24,10 +26,48 @@ def teardown():
 def test_basic():
     print "I RAN!"
 
-def test_get_tangler():
-    Out = abe_h.get_tangler('sharedbooks_json')
-    eq_('module', type(Out).__name__)
-    eq_('abe_formats.sharedbooks_json', Out.__name__)
+def test_simplejson():
+    Out = abe_h.unite('tst2_json', '''{"b_a": "Lawrence Snyder","b_n": "mi sit","ls": 232 }''')
+    Expected = u'''\
+Lawrence Snyder *mi sit*, 232 likes
 
-def test_json_tangler():
-    Out = abe_h.tangle(JsonTestStr1, 'sharedbooks_json')
+```json
+{"b_a": "Lawrence Snyder","b_n": "mi sit","ls": 232 }
+```
+'''
+    eq_(Expected,Out)
+
+def test_simplearbitrary():
+    Out = abe_h.unite('tst2_json'
+                     ,'qwe!@#)98QweNOT_EVEN_CODE2019874)(!@!('
+                     ,'{"author": "Lawrence Snyder","title": "mi sit","likes": 232 }')
+    Expected= u'''\
+Lawrence Snyder *mi sit*, 232 likes
+
+```json
+qwe!@#)98QweNOT_EVEN_CODE2019874)(!@!(
+```
+'''
+    eq_(Expected,Out)
+
+def test_simplearbitrary_reverse_text():
+    TextFull= u'''\
+Lawrence Snyder *mi sit*, 232 likes
+
+```json
+qwe!@#)98QweNOT_EVEN_CODE2019874)(!@!(
+```
+'''
+    TextClean = u'''Lawrence Snyder *mi sit*, 232 likes\n'''
+    eq_(TextClean,abe_h.text(TextFull))
+
+def test_simplearbitrary_reverse_code():
+    TextFull= u'''\
+Lawrence Snyder *mi sit*, 232 likes
+
+```json
+qwe!@#)98QweNOT_EVEN_CODE2019874)(!@!(
+```
+'''
+    CodeClean = u'qwe!@#)98QweNOT_EVEN_CODE2019874)(!@!('
+    eq_(CodeClean,abe_h.code(TextFull))

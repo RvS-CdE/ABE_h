@@ -1,32 +1,50 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import optparse
-import fileinput
 import sys
-from cStringIO import StringIO
+sys.path = ['../abe_h'] + sys.path
+import abe_h
 
+############################################################# INTERNAL FUNCTIONS
+################################################################################
+def handle_input(inp, options):
+    if options.text_out:
+        sys.stdout.write( abe_h.text(inp))
+    elif options.code_out:
+        sys.stdout.write( abe_h.code(inp))
+    else:
+        sys.stdout.write( abe_h.unite( options.format, inp) + '\n')
 
 ########################################################################### MAIN
 ################################################################################
 def main():
     p = optparse.OptionParser()
-    p.add_option('--format', '-f', action='store', dest='format', default=None, help='Input format (mandatory)'
-    p.add_option('--input', '-i', action='store', dest='input', default=None, help='Raw input (ignores other input if supplied)'
-
+    p.add_option('--format', '-f', action='store', dest='format', default=None, help='Input format (mandatory)')
+    p.add_option('--input', '-i', action='store', dest='input', default=None, help='Raw input (ignores other input if supplied)')
+    p.add_option('--fields', '-d', action='store', dest='fields', default=None, help='Predefined field contents (json, optionnal)')
+    p.add_option('--text_out','-t', action='store_true', dest='text_out', help='Extract text')
+    p.add_option('--code_out','-c', action='store_true', dest='code_out', help='Extract code')
     options, arguments = p.parse_args()
 
-    if options.format is None:
-        parser.error('Format not given')
+    if options.text_out and options.code_out:
+        raise SystemExit('Cannot output both code and text')
+
+    if options.format is None and not (options.text_out or options.code_out):
+        raise SystemExit('Format not given')
 
     if options.input is not None:
-        sys.stdout.write( abe-h.tangle( options.input, options.format) + '\n')
+        handle_input(options.input, options)
     else:
-       ## Incorrect, just read whole file in var and use that.
-       input_buffer = StringIO()
-       for input_line in fileinput.input():
-        input_buffer.write(input_line)
-
-       sys.stdout.write( abe-h.tangle( input_buffer.get_value(), options.format) + '\n')
+       if options.text_out or options.code_out:
+            buff = []
+            for input_line in sys.stdin:
+                buff.append(input_line)
+            handle_input(''.join(buff), options)
+       else:
+           for input_line in sys.stdin:
+            handle_input(input_line, options)
 
 if __name__ == '__main__':
   main()
+
+
